@@ -1,0 +1,12 @@
+---
+import PageMeta from "../components/PageMeta.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import NosotrosComponent from "../components/NosotrosComponent.astro";
+---
+
+<PageLayout>
+  <PageMeta title={`Misíon | Voces del Saber`} slot="meta" />
+  <Fragment slot="main">
+    <NosotrosComponent />
+  </Fragment>
+</PageLayout>
