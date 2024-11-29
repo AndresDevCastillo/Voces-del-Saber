@@ -9,7 +9,7 @@
       class="font-extrabold text-5xl md:text-6xl tracking-tight pt-4 pb-2 overflow-hidden"
     >
       <span
-        class="bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent"
+        class="bg-gradient-to-br from-[#d32222] via-[#d32222] to-[#d32222] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent"
       >
       Parrilla programación
       </span>
@@ -75,7 +75,7 @@
       "Exploradores de Sabiduría",
       "El Mundo en Palabras",
       "Pensar en Grande",
-      "El Planeta en Nuestras Manos",
+      "La Señal Perdida",
       "Cerebro Global",
       "Tiempos de Cambio",
       "Horizontes Abiertos",
@@ -139,8 +139,13 @@
       timeCell.textContent = `${index + 7}:00 AM`;
 
       const programCell = document.createElement('td');
+
       programCell.className = 'border border-gray-300 dark:border-gray-700 px-4 py-2 text-black dark:text-white';
       programCell.textContent = program;
+
+      if(program == 'Voces en Acción' || program == 'Ritmos del Corazón' || program == 'La Señal Perdida'){
+        programCell.className = 'border border-gray-300 dark:border-gray-700 px-4 py-2 text-red-500 dark:text-red-500';
+      }
 
       row.appendChild(timeCell);
       row.appendChild(programCell);
