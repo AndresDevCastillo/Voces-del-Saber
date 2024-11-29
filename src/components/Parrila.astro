@@ -136,6 +136,12 @@
     });
   }
 
+  const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+  const today = new Date();
+  const currentDay = daysOfWeek[today.getDay()];
+
+  selectElement.value = currentDay;
+
   // Inicializar la tabla con el día seleccionado al cargar la página
   updateTable(selectElement.value);
 
