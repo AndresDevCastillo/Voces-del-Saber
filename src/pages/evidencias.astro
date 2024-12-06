@@ -2,14 +2,12 @@
 import PageMeta from "../components/PageMeta.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 import { SITE_TITLE } from "../config";
-import Parrila from "src/components/Parrila.astro";
-import ProgramasDestacados from "src/components/ProgramasDestacados.astro";
+import Evidencia from "src/components/Evidencia.astro";
 ---
 
 <PageLayout>
   <PageMeta title={`${SITE_TITLE} | Web Ninja`} slot="meta" />
   <Fragment slot="main">
-    <Parrila/>
-    <ProgramasDestacados/>
+    <Evidencia/>
   </Fragment>
 </PageLayout>

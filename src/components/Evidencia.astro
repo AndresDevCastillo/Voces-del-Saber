@@ -1,0 +1,57 @@
+---
+// Importación de las evidencias (fotos y videos)
+import aImage from '../assets/img/evidencias/a.jpeg';
+import aVideo from '../assets/img/evidencias/a.mp4';
+import bImage from '../assets/img/evidencias/b.jpeg';
+import bVideo from '../assets/img/evidencias/b.mp4';
+import cImage from '../assets/img/evidencias/c.jpeg';
+import cVideo from '../assets/img/evidencias/c.mp4';
+import dImage from '../assets/img/evidencias/d.jpeg';
+import dVideo from '../assets/img/evidencias/d.mp4';
+import eImage from '../assets/img/evidencias/e.jpeg';
+import eVideo from '../assets/img/evidencias/e.mp4';
+import fImage from '../assets/img/evidencias/f.jpeg';
+import gImage from '../assets/img/evidencias/g.jpeg';
+import josefeliImage from '../assets/img/evidencias/josefeli.jpeg';
+
+// Arreglo con los archivos importados
+const evidencia = [
+  { src: aImage, tipo: 'image' },
+  { src: aVideo, tipo: 'video' },
+  { src: bImage, tipo: 'image' },
+  { src: bVideo, tipo: 'video' },
+  { src: cImage, tipo: 'image' },
+  { src: cVideo, tipo: 'video' },
+  { src: dImage, tipo: 'image' },
+  { src: dVideo, tipo: 'video' },
+  { src: eImage, tipo: 'image' },
+  { src: eVideo, tipo: 'video' },
+  { src: fImage, tipo: 'image' },
+  { src: josefeliImage, tipo: 'image' }
+];
+---
+
+<div class="dark:bg-gray-800 bg-white p-6 rounded-lg shadow-lg">
+  <h2 class="text-xl font-semibold text-center mb-4">Galería de Evidencias</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {evidencia.map((item) => (
+      <div class="relative overflow-hidden rounded-lg">
+        {item.tipo === 'image' ? (
+          <img
+            src={item.src}
+            alt="Evidencia"
+            class="object-cover w-full h-60 transition-transform duration-300 hover:scale-110"
+          />
+        ) : (
+          <video
+            class="object-cover w-full h-60 transition-transform duration-300 hover:scale-110"
+            controls
+          >
+            <source src={item.src} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
