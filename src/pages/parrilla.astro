@@ -2,20 +2,17 @@
 import PageMeta from "../components/PageMeta.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 import { SITE_TITLE } from "../config";
+import Parrila from "src/components/Parrila.astro";
 import ProgramasDestacados from "src/components/ProgramasDestacados.astro";
-import Presentation from "src/components/Presentation.astro";
-import Description from "src/components/description.astro";
-import DetrasDeCamara from "src/components/DetrasDeCamara.astro";
 import Jingle from "src/components/jingle.astro";
+import DetrasDeCamara from "src/components/DetrasDeCamara.astro";
 ---
 
 <PageLayout>
   <PageMeta title={`${SITE_TITLE} | Web Ninja`} slot="meta" />
   <Fragment slot="main">
-    <Presentation/>
-    <Description />
+    <Parrila/>
     <Jingle/>
     <ProgramasDestacados/>
-    <DetrasDeCamara/>
   </Fragment>
 </PageLayout>

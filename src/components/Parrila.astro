@@ -2,7 +2,7 @@
 
 ---
 
-<div class="max-w-lg mx-auto">
+<div class=" mx-auto">
   <!-- Selección de Día -->
   <div class="mb-4">
     <h1
@@ -46,30 +46,7 @@
       <!-- Las filas se agregarán dinámicamente mediante JavaScript -->
     </tbody>
   </table>
-  <!-- Tabla de Próximos Programas -->
-<h2 class="font-bold text-3xl mt-6 mb-4">Próximos Programas</h2>
-<table class="min-w-full table-auto border-collapse border border-gray-300 dark:border-gray-700">
-  <thead>
-    <tr class="bg-gray-200 dark:bg-gray-800">
-      <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-black dark:text-white">Programa</th>
-      <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-black dark:text-white">Enlace</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-black dark:text-white">La Señal Perdida</td>
-      <td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-blue-600 dark:text-blue-400"><a href="https://drive.google.com/file/d/164rfvHGkTFtwRXJucS6jY0NhTclvgM9G/view?usp=drivesdk" target="_blank">Ver programa</a></td>
-    </tr>
-    <tr>
-      <td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-black dark:text-white">Ritmos del Corazón</td>
-      <td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-blue-600 dark:text-blue-400"><a href="https://drive.google.com/file/d/1QUCEHmq27Okm4p1lOErYGvoKo2NJhtjZ/view?usp=drivesdk" target="_blank">Ver programa</a></td>
-    </tr>
-    <tr>
-      <td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-black dark:text-white">Voces en Acción</td>
-      <td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-blue-600 dark:text-blue-400"><a href="https://drive.google.com/file/d/15eiXRKd0spmAs-hKM7eVCR61pXOtxU4D/view?usp=drivesdk" target="_blank">Ver programa</a></td>
-    </tr>
-  </tbody>
-</table>
+
 
 </div>
 
@@ -147,6 +124,12 @@
     ],
   };
 
+  const programLinks = {
+    'Voces en Acción': 'https://drive.google.com/file/d/15eiXRKd0spmAs-hKM7eVCR61pXOtxU4D/view?usp=drivesdk',
+    'Ritmos del Corazón': 'https://drive.google.com/file/d/1QUCEHmq27Okm4p1lOErYGvoKo2NJhtjZ/view?usp=drivesdk',
+    'La Señal Perdida': 'https://drive.google.com/file/d/164rfvHGkTFtwRXJucS6jY0NhTclvgM9G/view?usp=drivesdk'
+  };
+
   const selectElement = document.getElementById('day-select');
   const tableBody = document.querySelector('#schedule-table tbody');
 
@@ -164,11 +147,21 @@
       timeCell.textContent = `${index + 7}:00 AM`;
 
       const programCell = document.createElement('td');
-
       programCell.className = 'border border-gray-300 dark:border-gray-700 px-4 py-2 text-black dark:text-white';
-      programCell.textContent = program;
 
-      if(program == 'Voces en Acción' || program == 'Ritmos del Corazón' || program == 'La Señal Perdida'){
+      // Si el programa tiene un enlace, lo añade
+      if (programLinks[program]) {
+        const linkElement = document.createElement('a');
+        linkElement.href = programLinks[program];
+        linkElement.target = '_blank';
+        linkElement.className = 'text-blue-600 dark:text-blue-400';
+        linkElement.textContent = program;
+        programCell.appendChild(linkElement);
+      } else {
+        programCell.textContent = program;
+      }
+
+      if (program == 'Voces en Acción' || program == 'Ritmos del Corazón' || program == 'La Señal Perdida') {
         programCell.className = 'border border-gray-300 dark:border-gray-700 px-4 py-2 text-red-500 dark:text-red-500';
       }
 

@@ -3,7 +3,7 @@
 
 export const SITE_TITLE = "Voces del saber";
 export const SITE_DESCRIPTION =
-  "Welcome to my blog! I write about modern web development.";
+  "Voces del Saber - Institución educativa Isabel la Catolica";
 export const TWITTER_HANDLE = "@yourtwitterhandle";
 export const MY_NAME = "Voces del saber";
 
